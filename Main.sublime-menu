@@ -16,26 +16,36 @@
                         "children":
                         [
                             {
-                                "command": "open_file",
-                                "args": {"file": "${packages}/ApplySyntax/ApplySyntax.sublime-settings"},
-                                "caption": "Settings – Default"
-                            },
-                            {
-                                "command": "open_file",
-                                "args": {"file": "${packages}/User/ApplySyntax.sublime-settings"},
-                                "caption": "Settings – User"
+                                "command": "edit_settings", "args": {
+                                    "base_file": "${packages}/ApplySyntax/ApplySyntax.sublime-settings",
+                                    "default": "{\n$0\n}\n"
+                                },
+                                "caption": "Settings"
                             },
                             { "caption": "-" },
                             {
                                 "caption": "Changelog",
                                 "command": "apply_syntax_changes"
                             },
+                            {
+                                "caption": "Documentation",
+                                "command": "apply_syntax_open_site",
+                                "args": {
+                                    "url": "http://facelessuser.github.io/ApplySyntax/"
+                                }
+                            },
                             { "caption": "-" },
                             {
                                 "caption": "Support Info",
                                 "command": "apply_syntax_support_info"
                             },
-                            { "caption": "-" }
+                            {
+                                "caption": "Issues",
+                                "command": "apply_syntax_open_site",
+                                "args": {
+                                    "url": "https://github.com/facelessuser/ApplySyntax/issues"
+                                }
+                            }
                         ]
                     }
                 ]
