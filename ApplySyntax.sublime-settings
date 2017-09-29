@@ -136,7 +136,7 @@
         },
         {
             "syntax": "PHP/PHP",
-            "extensions": ["php3", "php4", "php5", "inc", "phtml"],
+            "extensions": ["php3", "php4", "php5", "phtml"],
             "rules": [
                 {"first_line": "^<\\?php"}
             ]
@@ -147,7 +147,7 @@
         },
         {
             "syntax": "YAML/YAML",
-            "extensions": [".gemrc", "yml", "yml.dist", "YAML-tmLanguage"]
+            "extensions": [".gemrc", "yml", "yml.dist"]
         },
         {
             // This rule requires the INI plugin to be installed (via Package Control
@@ -202,14 +202,6 @@
             "rules": [
                 {"file_path": ".*\\.m$"},
                 {"contains": "(^|\n)\\s*%"}
-            ]
-        },
-        {
-            "syntax": "TypoScript/TypoScript",
-            "rules": [
-                {"file_path": ".*(\\\\|/)ext_conf_template\\.txt$"},
-                {"file_path": ".*(\\\\|/)ext_typoscript_(setup|constants)\\.txt$"},
-                {"file_path": ".*(\\\\|/)(fileadmin|typo3|TypoScript).*(\\\\|/)(setup|constants)\\.txt$"}
             ]
         }
     ]
