@@ -1,16 +1,28 @@
 site_name: ApplySyntax Documentation
+site_url: https://facelessuser.github.io/ApplySyntax
 repo_url: https://github.com/facelessuser/ApplySyntax
+edit_uri: tree/master/docs/src/markdown
 site_description: Syntax detector for Sublime Text.
+copyright: <span class="md-footer-custom-text">emoji provided free by </span><a href="http://www.emojione.com">EmojiOne</a>
+
+docs_dir: docs/src/markdown
+theme:
+  name: material
+  custom_dir: docs/theme
+  palette:
+    primary: blue
+    accent: blue
+  logo:
+    icon: description
+  font:
+    text: Roboto
+    code: Roboto Mono
 
 pages:
   - About ApplySyntax: index.md
   - Installation: installation.md
   - User Guide: usage.md
   - Contributing &amp; Support: contributing.md
-
-theme: material
-docs_dir: docs/src/markdown
-theme_dir: docs/theme
 
 markdown_extensions:
   - markdown.extensions.toc:
@@ -57,16 +69,11 @@ markdown_extensions:
   - pymdownx.details:
 
 extra:
-  palette:
-    primary: blue
-    accent: blue
-  font:
-    text: Roboto
-    code: Roboto Mono
   social:
     - type: github
       link: https://github.com/facelessuser
 extra_css:
-  - extra-6068b97e47.css
+  - extra-00833721db.css
 extra_javascript:
-  - extra-2aceccb07f.js
+  - extra-4596f9831a.js
+

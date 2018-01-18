@@ -1,3 +1,10 @@
+# ApplySyntax 2.5.0
+
+> Released Nov 8, 2017
+
+- **NEW**: Add document and settings command to command palette.
+- **FIX**: Handling of list syntax.
+
 # ApplySyntax 2.4.1
 
 > Released June 16, 2017

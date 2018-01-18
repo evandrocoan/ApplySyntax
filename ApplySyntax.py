@@ -232,9 +232,16 @@ def update_extenstions(lst):
 
         # Add the extensions to the relevant language settings file
         if len(ext):
-            name = os.path.splitext(entry.get("syntax", entry.get("name")))[0]
-            devlog("Found Extensions: %s - %s" % (name, str(ext)))
-            map_extensions(ext, lst, name, ext_map, ext_added)
+            syntax = entry.get("syntax", entry.get("name"))
+            if isinstance(syntax, list):
+                for s in syntax:
+                    name = os.path.splitext(s)[0]
+                    devlog("Found Extensions: %s - %s" % (name, str(ext)))
+                    map_extensions(ext, lst, name, ext_map, ext_added)
+            else:
+                name = os.path.splitext(syntax)[0]
+                devlog("Found Extensions: %s - %s" % (name, str(ext)))
+                map_extensions(ext, lst, name, ext_map, ext_added)
 
     update_language_extensions(ext_added)
 
@@ -411,12 +418,13 @@ class ApplySyntaxCommand(sublime_plugin.EventListener):
             names = [name]
         else:
             names = name
-        for n in names:
-            for ext in ST_LANGUAGES:
-                path = os.path.dirname(n)
-                if not path:
-                    continue
 
+        for n in names:
+            path = os.path.dirname(n)
+            if not path:
+                continue
+
+            for ext in ST_LANGUAGES:
                 lang_ext = os.path.splitext(n)[1]
                 if lang_ext and lang_ext in ST_LANGUAGES:
                     if lang_ext != ext:
@@ -435,12 +443,12 @@ class ApplySyntaxCommand(sublime_plugin.EventListener):
                         sublime.load_resource(new_syntax)
                         self.view.set_syntax_file(new_syntax)
                         debug('Syntax set to ' + name + ' using ' + new_syntax)
-                        break
+                        return
                     except Exception:
                         debug('Syntax file for ' + name + ' does not exist at ' + new_syntax)
                 else:
                     debug('Syntax already set to ' + new_syntax)
-                    break
+                    return
 
     def create_extension_rule(self, syntaxes):
         """Create a rules for the defined extensions."""

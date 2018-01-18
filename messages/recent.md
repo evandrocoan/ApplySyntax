@@ -1,4 +1,4 @@
-# ApplySyntax 2.4.0
+# ApplySyntax 2.5.0
 
 Changelog and support info command is now available in `Preferences->Package Settings->ApplySyntax`.
 
