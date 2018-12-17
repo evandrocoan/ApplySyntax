@@ -3,7 +3,9 @@ site_url: https://facelessuser.github.io/ApplySyntax
 repo_url: https://github.com/facelessuser/ApplySyntax
 edit_uri: tree/master/docs/src/markdown
 site_description: Syntax detector for Sublime Text.
-copyright: <span class="md-footer-custom-text">emoji provided free by </span><a href="http://www.emojione.com">EmojiOne</a>
+copyright: |
+  Copyright &copy; 2013 - 2018 <a href="https://github.com/facelessuser">Isaac Muse</a>
+  <br><span class="md-footer-custom-text">emoji provided free by </span><a href="http://www.emojione.com">EmojiOne</a>
 
 docs_dir: docs/src/markdown
 theme:
@@ -18,7 +20,7 @@ theme:
     text: Roboto
     code: Roboto Mono
 
-pages:
+nav:
   - About ApplySyntax: index.md
   - Installation: installation.md
   - User Guide: usage.md
@@ -48,7 +50,9 @@ markdown_extensions:
   - pymdownx.inlinehilite:
   - pymdownx.magiclink:
       repo_url_shortener: true
-      base_repo_url: https://github.com/facelessuser/ApplySyntax
+      repo_url_shorthand: true
+      user: facelessuser
+      repo: ApplySyntax
   - pymdownx.tilde:
   - pymdownx.caret:
   - pymdownx.smartsymbols:
@@ -60,8 +64,7 @@ markdown_extensions:
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.progressbar:
-  - pymdownx.plainhtml:
-      strip_attributes: ''
+  - pymdownx.striphtml:
   - pymdownx.snippets:
       base_path: docs/src/markdown/_snippets
   - pymdownx.keys:
@@ -73,7 +76,6 @@ extra:
     - type: github
       link: https://github.com/facelessuser
 extra_css:
-  - extra-00833721db.css
+  - extra-06017885a7.css
 extra_javascript:
-  - extra-4596f9831a.js
-
+  - extra-0b9b22dd13.js

@@ -55,7 +55,8 @@
             "syntax": [
                 "RSpec/RSpec",
                 "RSpec (snippets and syntax)/Syntaxes/RSpec",
-                "Better RSpec/Better RSpec"
+                "Better RSpec/Better RSpec",
+                "RSpec Buddy/RSpec Buddy"
             ],
             "rules": [
                 {"file_path": ".*spec\\.rb$"},
@@ -150,17 +151,23 @@
             "extensions": [".gemrc", "yml", "yml.dist"]
         },
         {
-            // This rule requires the INI plugin to be installed (via Package Control
-            // or https://github.com/clintberry/sublime-text-2-ini)
-            "syntax": "INI/INI",
-            "extensions": [".gitattributes", ".gitconfig", ".gitignore", "ini.dist", ".npmrc"],
+            "syntax": "Git Formats/Git Config",
             "rules": [
-                {"file_path": ".*/git/(attributes|config|ignore)$"},
-                {"file_path": ".*\\\\git\\\\(attributes|config|ignore)$"}
+                {"file_path": ".*/git/config$"},
+                {"file_path": ".*\\\\git\\\\config$"}
             ]
         },
         {
-            "syntax": "ShellScript/Shell-Unix-Generic",
+            // This rule requires the INI plugin to be installed (via Package Control
+            // or https://github.com/clintberry/sublime-text-2-ini)
+            "syntax": "INI/INI",
+            "extensions": ["ini.dist", ".npmrc"]
+        },
+        {
+            "syntax": [
+                "ShellScript/Bash",
+                "ShellScript/Shell-Unix-Generic"
+            ],
             "extensions": ["bash", "sh", "zsh"],
             "rules": [
                 {"file_path": "profile"},

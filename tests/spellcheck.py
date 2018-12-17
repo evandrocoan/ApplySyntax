@@ -10,6 +10,7 @@ PY3 = sys.version_info >= (3, 0)
 
 USER_DICT = '.dictionary'
 BUILD_DIR = os.path.join('.', 'build', 'docs')
+BACKOUT = '../../'
 MKDOCS_CFG = 'mkdocs.yml'
 COMPILED_DICT = os.path.join(BUILD_DIR, 'dictionary.bin')
 MKDOCS_SPELL = os.path.join(BUILD_DIR, MKDOCS_CFG)
@@ -93,23 +94,20 @@ def yaml_load(source, loader=yaml.Loader):
 
 
 def patch_doc_config(config_file):
-    """Patch the config file to wrap arithmatex with a tag aspell can ignore."""
+    """Patch paths for Mkdocs 1.0."""
 
     with open(config_file, 'rb') as f:
         config = yaml_load(f)
 
-    index = 0
-    for extension in config.get('markdown_extensions', []):
-        if isinstance(extension, str if PY3 else unicode) and extension == 'pymdownx.arithmatex':  # noqa
-            config['markdown_extensions'][index] = {'pymdownx.arithmatex': {'insert_as_script': True}}
-            break
-        elif isinstance(extension, dict) and 'pymdownx.arithmatex' in extension:
-            if isinstance(extension['pymdownx.arithmatex'], dict):
-                extension['pymdownx.arithmatex']['insert_as_script'] = True
-            elif extension['pymdownx.arithmatex'] is None:
-                extension['pymdownx.arithmatex'] = {'insert_as_script': True}
-            break
-        index += 1
+    docs_dir = config.get('docs_dir')
+    if docs_dir is not None:
+        config['docs_dir'] = BACKOUT + docs_dir
+
+    theme = config.get('theme')
+    if theme is not None:
+        custom_dir = theme.get('custom_dir')
+        if custom_dir is not None:
+            config['theme']['custom_dir'] = BACKOUT + custom_dir
 
     with codecs.open(MKDOCS_SPELL, "w", encoding="utf-8") as f:
         yaml_dump(
