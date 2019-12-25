@@ -53,6 +53,7 @@ ApplySyntax is a plugin for Sublime Text 2 and 3 that allows you to detect and a
 search for **`ApplySyntax`** and press <kbd>Enter</kbd>
 
 See also:
+
 1. [ITE - Integrated Toolset Environment](https://github.com/evandrocoan/ITE)
 1. [Package control docs](https://packagecontrol.io/docs/usage) for details.
 
